@@ -8,8 +8,7 @@ import { Badge } from '@/components/ui/badge';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  animate: { opacity: 1, y: 0 }
 };
 
 const skills = [
@@ -77,6 +76,7 @@ export default function About() {
               <motion.h1
                 className="text-4xl sm:text-5xl font-bold"
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
               >
                 About <span className="text-primary">Me</span>
               </motion.h1>
@@ -84,8 +84,9 @@ export default function About() {
               <motion.p
                 className="text-lg text-muted-foreground leading-relaxed"
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
               >
-                I'm a passionate Full Stack Developer with over 6 years of experience creating 
+                I&apos;m a passionate Full Stack Developer with over 6 years of experience creating 
                 digital solutions that make a difference. I love turning complex problems into 
                 simple, beautiful, and intuitive designs.
               </motion.p>
@@ -93,14 +94,16 @@ export default function About() {
               <motion.p
                 className="text-lg text-muted-foreground leading-relaxed"
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
               >
-                When I'm not coding, you'll find me exploring new technologies, contributing to 
+                When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to 
                 open-source projects, or sharing my knowledge through tech talks and mentoring.
               </motion.p>
 
               <motion.div
                 className="flex flex-wrap gap-2"
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
               >
                 {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'AWS'].map((tech) => (
                   <Badge key={tech} variant="secondary" className="text-sm">

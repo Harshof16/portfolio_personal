@@ -60,6 +60,14 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        neon: {
+          cyan: "hsl(var(--neon-cyan))",
+          pink: "hsl(var(--neon-pink))",
+          green: "hsl(var(--neon-green))",
+          purple: "hsl(var(--neon-purple))",
+          orange: "hsl(var(--neon-orange))",
+          blue: "hsl(var(--neon-blue))",
+        },
       },
       keyframes: {
         'accordion-down': {

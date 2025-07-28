@@ -6,6 +6,14 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+   /* Neon Colors */
+   --neon-cyan: 180 100% 50%;
+   --neon-pink: 320 100% 50%;
+   --neon-green: 120 100% 50%;
+   --neon-purple: 280 100% 50%;
+   --neon-orange: 30 100% 50%;
+   --neon-blue: 240 100% 50%;
 }
 
 @media (prefers-color-scheme: dark) {

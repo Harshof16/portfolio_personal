@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Download, ArrowRight, Code, Palette, Zap } from 'lucide-react';
+import { Download, ArrowRight, Code, Palette, Zap, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedText } from '@/components/animated-text';
 
@@ -16,6 +16,18 @@ const staggerContainer = {
   animate: {
     transition: {
       staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
     }
   }
 };
@@ -104,7 +116,7 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
               variants={fadeInUp}
               transition={{ duration: 0.6 }}
             >
@@ -118,6 +130,29 @@ export default function Home() {
                 <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                 Download Resume
               </Button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center space-x-6 pt-4"
+            >
+              {[
+                { icon: Github, href: "https://github.com/Harshof16", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/harsh-shukla-921566154/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:harshkla09@gmail.com", label: "Email" }
+              ].map(({ icon: Icon, href, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                </motion.a>
+              ))}
             </motion.div>
           </motion.div>
         </div>
