@@ -104,8 +104,8 @@ export default function Hero() {
               <AnimatedText
                 texts={[
                   "Full Stack Developer",
-                  "UI/UX Designer",
                   "React Specialist",
+                  "UI/UX Designer",
                   "Problem Solver",
                 ]}
                 className="text-primary font-semibold"

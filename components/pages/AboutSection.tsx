@@ -160,8 +160,8 @@ export default function About() {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
                       {/* Timeline Icon */}
-                      <div className="flex-shrink-0 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                        <Icon className="h-8 w-8 text-primary-foreground" />
+                      <div className="flex-shrink-0 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                        <Icon className="h-7 w-7 text-primary-foreground" />
                       </div>
                       
                       {/* Timeline Content - Direct on background */}
