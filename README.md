@@ -7,7 +7,7 @@ Welcome to my **personal developer portfolio** built to showcase my skills, proj
 ---
 
 ## 🚀 Live Website  
-Check it out: [harshshukla.dev](https://harshshukla.dev) *(replace with your actual link)*
+Check it out: [harshshukla.dev](https://portfolio-personal-4xvx.vercel.app/)
 
 ---
 
@@ -31,10 +31,8 @@ Check it out: [harshshukla.dev](https://harshshukla.dev) *(replace with your act
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshot
 
-<!-- Replace with real screenshots or GIFs -->
-![Homepage](https://via.placeholder.com/800x400?text=Portfolio+Homepage)  
-![Projects](https://via.placeholder.com/800x400?text=Featured+Projects)
+![Homepage](<img width="1556" height="851" alt="Screenshot 2025-07-29 082554" src="https://github.com/user-attachments/assets/5e638f3c-89c9-45b9-97fb-ca25f41faa98" />)  
 
 ---
