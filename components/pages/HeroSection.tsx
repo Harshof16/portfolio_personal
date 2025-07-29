@@ -119,7 +119,9 @@ export default function Hero() {
             variants={fadeInUp}
             transition={{ duration: 0.6 }}
           >
-            Passionate about crafting modern, user-centric digital experiences. I build scalable web applications that blend clean design with robust, high-performance functionality.
+            Passionate about crafting modern, user-centric digital experiences.
+            I build scalable web applications that blend clean design with
+            robust, high-performance functionality.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -128,18 +130,19 @@ export default function Hero() {
             variants={fadeInUp}
             transition={{ duration: 0.6 }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="group"
               onClick={() => {
-                const element = document.querySelector('#projects');
+                const element = document.querySelector("#projects");
                 if (element) {
                   const offset = 80;
                   const elementPosition = element.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - offset;
                   window.scrollTo({
                     top: offsetPosition,
-                    behavior: 'smooth'
+                    behavior: "smooth",
                   });
                 }
               }}
@@ -147,9 +150,15 @@ export default function Hero() {
               View My Work
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="group">
-              <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-              Download Resume
+            <Button asChild variant="outline" size="lg" className="group">
+              <a
+                href="/Harsh_Shukla_Resume.pdf"
+                download="Harsh_Shukla_Resume.pdf"
+                className="flex items-center"
+              >
+                <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                Download Resume
+              </a>
             </Button>
           </motion.div>
 

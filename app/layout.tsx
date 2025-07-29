@@ -15,11 +15,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://yourdomain.com', // replace this
-    title: 'Harsh Shukla - Full Stack Developer & Designer',
-    description: 'Portfolio of Harsh Shukla - Full Stack Developer specializing in React, Next.js, and modern web technologies.',
+    url: 'https://portfolio-personal-4xvx.vercel.app/',
+    title: 'Harsh Shukla - Full Stack Developer',
+    description: 'Portfolio showcasing React, Next.js, Node.js projects.',
     siteName: 'Harsh Shukla Portfolio',
+    images: [
+      {
+        url: 'https://portfolio-personal-4xvx.vercel.app/portfolio-thumbnail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Harsh Shukla Portfolio',
+      },
+    ],
   },
+  
 };
 
 export default function RootLayout({
