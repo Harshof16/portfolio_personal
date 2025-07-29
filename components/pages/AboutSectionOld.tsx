@@ -52,15 +52,40 @@ const timeline = [
 ];
 
 const stats = [
-  { label: 'Years Experience', value: '6+' },
-  { label: 'Projects Completed', value: '50+' },
-  { label: 'Happy Clients', value: '30+' },
-  { label: 'Lines of Code', value: '100K+' },
+  { label: 'Years Experience', value: '3+' },
+  { label: 'Projects Completed', value: '25+' },
+  { label: 'Happy Clients', value: '10+' },
+  { label: 'Lines of Code', value: '50K+' },
 ];
 
 export default function About() {
   return (
-    <div className="pt-16">
+    <div>
+         {/* Stats Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Hero Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -86,7 +111,7 @@ export default function About() {
                 variants={fadeInUp}
                 transition={{ duration: 0.6 }}
               >
-                I&apos;m a passionate Full Stack Developer with over 6 years of experience creating 
+                I&apos;m a passionate Full Stack Developer with over 3 years of experience creating 
                 digital solutions that make a difference. I love turning complex problems into 
                 simple, beautiful, and intuitive designs.
               </motion.p>
@@ -135,30 +160,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Skills Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">

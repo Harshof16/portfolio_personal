@@ -1,24 +1,23 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, User, Briefcase, Mail, FileText } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
 import { Button } from './ui/button';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 const navItems = [
-  { href: '/', label: 'Home', icon: User },
-  { href: '/about', label: 'About', icon: FileText },
-  { href: '/projects', label: 'Projects', icon: Briefcase },
-  { href: '/contact', label: 'Contact', icon: Mail },
+  { href: '#home', label: 'Home', icon: User },
+  { href: '#about', label: 'About', icon: FileText },
+  { href: '#projects', label: 'Projects', icon: Briefcase },
+  { href: '#contact', label: 'Contact', icon: Mail },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const activeSection = useScrollSpy(["home", "about", "projects", "contact"]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +30,24 @@ export function Navigation() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname]);
+  }, [activeSection]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -51,10 +64,9 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2"
+          <button
             onClick={scrollToTop}
+            className="flex items-center space-x-2"
           >
             <motion.div
               className="text-2xl font-bold bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-shift hover:scale-105 transition-transform"
@@ -63,21 +75,21 @@ export function Navigation() {
             >
               Portfolio
             </motion.div>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
+                onClick={() => scrollToSection(item.href)}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === item.href
+                  activeSection === item.href.replace('#', '')
                     ? "text-primary"
                     : "text-muted-foreground"
                 }`}
               >
-                {pathname === item.href && (
+                {activeSection === item.href.replace('#', '') && (
                   <motion.div
                     className="absolute inset-0 bg-primary/10 rounded-md"
                     layoutId="navbar-active"
@@ -85,7 +97,7 @@ export function Navigation() {
                   />
                 )}
                 <span className="relative z-10">{item.label}</span>
-              </Link>
+              </button>
             ))}
             <ThemeToggle />
           </div>
@@ -128,17 +140,17 @@ export function Navigation() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <Link
-                        href={item.href}
-                        className={`flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                          pathname === item.href
+                      <button
+                        onClick={() => scrollToSection(item.href)}
+                        className={`flex items-center w-full px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                          activeSection === item.href.replace('#', '')
                             ? "text-primary bg-primary/10"
                             : "text-muted-foreground hover:text-primary hover:bg-accent"
                         }`}
                       >
                         <Icon className="h-5 w-5 mr-3" />
                         {item.label}
-                      </Link>
+                      </button>
                     </motion.div>
                   );
                 })}

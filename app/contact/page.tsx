@@ -6,12 +6,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import toast from 'react-hot-toast';
-import { Mail, Phone, MapPin, Send, Copy, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Copy, Github, Linkedin, Twitter, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import Link from 'next/link';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -26,21 +27,21 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'john@example.com',
-    href: 'mailto:john@example.com',
+    value: 'harshkla09@gmail.com',
+    href: 'mailto:harshkla09@gmail.com',
     copyable: true,
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
+    value: '+917518110812',
+    href: 'tel:+917518110812',
     copyable: true,
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'San Francisco, CA',
+    value: 'Lucknow, India',
     href: '#',
     copyable: false,
   },
@@ -50,27 +51,26 @@ const socialLinks = [
   {
     icon: Github,
     label: 'GitHub',
-    href: 'https://github.com/johndoe',
+    href: 'https://github.com/Harshof16',
     color: 'hover:text-gray-900 dark:hover:text-gray-100',
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/johndoe',
+    href: 'https://www.linkedin.com/in/harsh-shukla-921566154/',
     color: 'hover:text-blue-600',
   },
   {
     icon: Twitter,
     label: 'Twitter',
-    href: 'https://twitter.com/johndoe',
+    href: 'https://twitter.com/harshshukla',
     color: 'hover:text-blue-400',
   },
 ];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  animate: { opacity: 1, y: 0 }
 };
 
 export default function Contact() {
@@ -109,9 +109,27 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen bg-background pt-2">
+      {/* Header with Back Button */}
+      <header className="border-b border-border bg-background/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link 
+              href="/"
+              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back to Portfolio</span>
+            </Link>
+            <div className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              Harsh Shukla
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial="initial"
@@ -124,7 +142,7 @@ export default function Contact() {
               className="text-4xl sm:text-5xl font-bold mb-6"
               variants={fadeInUp}
             >
-              Let's <span className="text-primary">Connect</span>
+              Let&apos;s <span className="text-primary">Connect</span>
             </motion.h1>
             
             <motion.p
@@ -132,14 +150,14 @@ export default function Contact() {
               variants={fadeInUp}
             >
               Have a project in mind or just want to chat about technology? 
-              I'd love to hear from you. Send me a message and I'll respond as soon as possible.
+              I&apos;d love to hear from you. Send me a message and I&apos;ll respond as soon as possible.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -152,7 +170,7 @@ export default function Contact() {
               <div>
                 <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
                 <p className="text-muted-foreground mb-8">
-                  I'm always interested in new opportunities, collaborations, and interesting projects.
+                  I&apos;m always interested in new opportunities, collaborations, and interesting projects.
                 </p>
               </div>
 
@@ -324,7 +342,7 @@ export default function Contact() {
       </section>
 
       {/* Map or Additional Info Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/80 dark:bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -332,20 +350,20 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-6">Let's Build Something Amazing</h2>
+            <h2 className="text-3xl font-bold mb-6">Let&apos;s Build Something Amazing</h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Whether you have a project in mind, need technical consultation, or just want to 
-              connect, I'm here to help bring your ideas to life.
+              connect, I&apos;m here to help bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="outline">
-                <a href="mailto:john@example.com">
+                <a href="mailto:harshkla09@gmail.com">
                   <Mail className="mr-2 h-4 w-4" />
                   Email Me
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="tel:+15551234567">
+                <a href="tel:+917518110812">
                   <Phone className="mr-2 h-4 w-4" />
                   Call Me
                 </a>

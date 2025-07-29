@@ -1,34 +1,30 @@
+"use client";
+
 import './globals.css';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { Toaster } from 'react-hot-toast';
+import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Harsh Shukla - Full Stack Developer & Designer',
-  description: 'Portfolio of Harsh Shukla - Full Stack Developer specializing in React, Next.js, and modern web technologies. View my projects and get in touch.',
-  keywords: 'developer, portfolio, react, nextjs, typescript, javascript',
-  authors: [{ name: 'Harsh Shukla' }],
-  creator: 'Harsh Shukla',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://johndoe.dev',
-    title: 'Harsh Shukla - Full Stack Developer & Designer',
-    description: 'Portfolio of Harsh Shukla - Full Stack Developer specializing in React, Next.js, and modern web technologies.',
-    siteName: 'Harsh Shukla Portfolio',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Harsh Shukla - Full Stack Developer & Designer',
-    description: 'Portfolio of Harsh Shukla - Full Stack Developer specializing in React, Next.js, and modern web technologies.',
-    creator: '@johndoe',
-  },
-};
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isContactPage = pathname === '/contact';
+
+  return (
+    <>
+      {!isContactPage && <Navigation />}
+      <main className="min-h-screen">
+        {children}
+      </main>
+      {!isContactPage && <Footer />}
+      <Toaster position="bottom-right" />
+    </>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -44,12 +40,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <Navigation />
-          <main className="min-h-screen">
+          <LayoutContent>
             {children}
-          </main>
-          <Footer />
-          <Toaster position="bottom-right" />
+          </LayoutContent>
         </ThemeProvider>
       </body>
     </html>
