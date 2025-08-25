@@ -34,20 +34,19 @@ const projects = [
   },
   {
     id: 2,
-    title: "AI Chatbot",
+    title: "AI Persona Chatbot",
     description:
-      "Built a conversational AI chatbot using OpenAI API and Socket.io. Features include real-time messaging, context awareness, and persistent chat history.",
+      "Built a persona-driven AI chatbot where each persona responds in a unique style using few-shot prompting. Integrated OpenAI API with Socket.io for real-time messaging, and designed a polished Next.js + TailwindCSS UI with markdown rendering and relative timestamps.",
     image: "https://images.pexels.com/photos/1181315/pexels-photo-1181315.jpeg",
     technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "Socket.io",
-      "OpenAI API",
-      "MongoDB",
+    "Next.js",
+    "Socket.io",
+    "OpenAI API",
+    "TailwindCSS",
+    'GEMINI'
     ],
-    githubUrl: "https://github.com/Harshof16/ChatBotAI", // Replace with actual or null
-    demoUrl: "https://chat-bot-ai-xi.vercel.app/", // Replace with actual or null
+    githubUrl: "https://github.com/Harshof16/Persona-AI-Chatbot",
+    demoUrl: "https://persona-ai-chatbot.vercel.app/",
     date: "2025",
     featured: true,
   },
