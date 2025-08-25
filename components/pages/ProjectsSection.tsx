@@ -36,7 +36,7 @@ const projects = [
     id: 2,
     title: "AI Persona Chatbot",
     description:
-      "Built a persona-driven AI chatbot where each persona responds in a unique style using few-shot prompting. Integrated OpenAI API with Socket.io for real-time messaging, and designed a polished Next.js + TailwindCSS UI with markdown rendering and relative timestamps.",
+      "Persona-based AI chatbot built with Next.js, TailwindCSS, and Socket.io. Uses OpenAI API with few-shot prompting, markdown rendering, and relative timestamps for a polished chat experience.",
     image: "https://images.pexels.com/photos/1181315/pexels-photo-1181315.jpeg",
     technologies: [
     "Next.js",
