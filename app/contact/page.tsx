@@ -63,7 +63,7 @@ const socialLinks = [
   {
     icon: Twitter,
     label: 'Twitter',
-    href: 'https://twitter.com/harshshukla',
+    href: 'https://x.com/HarshShtech',
     color: 'hover:text-blue-400',
   },
 ];
